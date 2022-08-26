@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:ts": "tsc --noEmit"
   },
   "dependencies": {
     "next": "12.2.5",
@@ -14,6 +15,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@types/node": "^18.7.13",
     "@types/react": "18.0.17",
     "eslint": "8.22.0",
     "eslint-config-next": "12.2.5",
