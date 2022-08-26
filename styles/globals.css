@@ -1,5 +1,6 @@
 html,
 body {
+  touch-action: manipulation;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -11,6 +12,11 @@ a {
   text-decoration: none;
 }
 
-* {
+*, *::before, *::after {
+  word-break: break-word;
   box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
 }
