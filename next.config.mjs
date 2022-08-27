@@ -1,6 +1,6 @@
-'use strict';
-
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConf = {
   reactStrictMode: true,
 };
+
+export default nextConf;
