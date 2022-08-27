@@ -35,3 +35,9 @@ yarn-error.log*
 
 # cache files
 tsconfig.tsbuildinfo
+
+
+# lock files, this project uses yarn
+yarn.lock
+pnpm-lock.yaml
+pnpm-lock.yml
