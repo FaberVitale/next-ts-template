@@ -27,3 +27,19 @@ a:hover {
 [hidden] {
   display: none !important;
 }
+
+.d-flex {
+  display: flex !important;
+}
+
+.pointer-events-none {
+  pointer-events: none !important;
+}
+
+.invisible {
+  visibility: hidden !important;
+}
+
+.visible {
+  visibility: visible !important;
+}
