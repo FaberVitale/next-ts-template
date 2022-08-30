@@ -1,7 +1,8 @@
 import { describe, it, expect, vi, test, beforeEach } from 'vitest';
 import type { FetchMock } from 'vitest-fetch-mock'; // contains globalThis.fetchMock declaration
 import { DummyComponent } from '../DummyComponent';
-import { render, screen } from '@testing-library/react';
+import { render, screen, cleanup } from '@testing-library/react';
+import userEvents from '@testing-library/user-event';
 
 // @see https://testing-library.com/docs/react-testing-library/intro/
 // @see https://jestjs.io/docs/getting-started
@@ -35,6 +36,28 @@ describe('DummyComponent', () => {
   it('calls mockFn', () => {
     expect(mockFn).toHaveBeenCalledTimes(0);
     mockFn();
+
+    expect(mockFn).toHaveBeenCalledTimes(1);
+  });
+
+  it('registers click events correctly', async () => {
+    const user = userEvents.setup();
+
+    render(
+      <DummyComponent onClick={mockFn}>
+        <p data-testid="child" />
+      </DummyComponent>
+    );
+
+    const dummyRoot = screen.getByTestId('child').parentElement;
+
+    if (!dummyRoot) {
+      throw new Error('not found');
+    }
+
+    expect(mockFn).toHaveBeenCalledTimes(0);
+
+    await user.click(dummyRoot);
 
     expect(mockFn).toHaveBeenCalledTimes(1);
   });
