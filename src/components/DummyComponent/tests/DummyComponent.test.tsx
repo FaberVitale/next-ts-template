@@ -1,11 +1,18 @@
+import { describe, it, expect, vi, test, beforeEach } from 'vitest';
+import type { FetchMock } from 'vitest-fetch-mock'; // contains globalThis.fetchMock declaration
 import { DummyComponent } from '../DummyComponent';
 import { render, screen } from '@testing-library/react';
-import fetchMock from 'jest-fetch-mock';
 
 // @see https://testing-library.com/docs/react-testing-library/intro/
 // @see https://jestjs.io/docs/getting-started
 // @see https://testing-library.com/docs/queries/about
 describe('DummyComponent', () => {
+  const mockFn = vi.fn();
+
+  beforeEach(() => {
+    mockFn.mockClear();
+  });
+
   it('renders a div', () => {
     render(
       <DummyComponent>
@@ -23,5 +30,12 @@ describe('DummyComponent', () => {
     const res = await (await fetch('/pink')).json();
 
     expect(res).toBe('punk');
+  });
+
+  it('calls mockFn', () => {
+    expect(mockFn).toHaveBeenCalledTimes(0);
+    mockFn();
+
+    expect(mockFn).toHaveBeenCalledTimes(1);
   });
 });

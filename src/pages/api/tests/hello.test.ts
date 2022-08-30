@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import helloHandler from '../hello';
 
 // endpoint handlers are simple functions,
