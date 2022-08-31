@@ -10,13 +10,18 @@
     "start": "next start",
     "lint": "next lint",
     "lint:ts": "tsc --noEmit",
-    "fmt": "prettier src --write"
+    "fmt": "prettier src --write",
+    "cypress": "cypress open",
+    "cypress:headless": "cypress run",
+    "e2e": "start-server-and-test dev http://localhost:3000 cypress",
+    "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless"
   },
   "dependencies": {
     "clsx": "^1.2.1",
     "next": "12.2.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "start-server-and-test": "^1.14.0"
   },
   "packageManager": "npm@8.5.5",
   "devDependencies": {
@@ -26,6 +31,7 @@
     "@types/node": "^18.7.13",
     "@types/react": "18.0.17",
     "@vitejs/plugin-react": "^2.0.1",
+    "cypress": "^10.7.0",
     "eslint": "8.22.0",
     "eslint-config-next": "12.2.5",
     "jsdom": "^20.0.0",
