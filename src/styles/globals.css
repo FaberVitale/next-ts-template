@@ -9,7 +9,7 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:active,
@@ -34,6 +34,10 @@ a:hover {
 
 .pointer-events-none {
   pointer-events: none !important;
+}
+
+.d-position-relative {
+  position: relative !important;
 }
 
 .invisible {
